@@ -23,6 +23,8 @@ module.exports = {
         ],
     },
 
+    plugins: [new DtsBundlePlugin()],
+
     target: "node",
 
     node: {
@@ -34,14 +36,13 @@ function DtsBundlePlugin() {}
 DtsBundlePlugin.prototype.apply = function(compiler) {
     compiler.plugin("done", function() {
         var dts = require("dts-bundle");
+
         dts.bundle({
             name: "docx",
-            main: "build/index.d.ts",
-            out: "../index.d.ts",
-            removeSource: true,
+            main: "build/**/*.d.ts",
+            out: "index.d.ts",
+            removeSource: false,
             outputAsModuleFolder: true, // to use npm in-package typings
         });
-
-        // Delete unneeded files
     });
 };
