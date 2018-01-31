@@ -61,6 +61,7 @@
     "@types/mocha": "^2.2.39",
     "awesome-typescript-loader": "^3.4.1",
     "chai": "^3.5.0",
+    "dts-bundle": "^0.7.3",
     "mocha": "^3.2.0",
     "mocha-webpack": "^1.0.1",
     "prettier": "^1.10.2",
