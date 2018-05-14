@@ -16,7 +16,8 @@
     "typedoc": "typedoc --out docs/ src/ --module commonjs --target ES6 --disableOutputCheck --excludePrivate --externalPattern \"**/*.spec.ts\"",
     "style": "prettier -l \"src/**/*.ts\"",
     "style.fix": "prettier \"src/**/*.ts\" --write",
-    "fix-types": "node types-absolute-fixer.js"
+    "fix-types": "node types-absolute-fixer.js",
+    "e2e": "node e2e/main.js"
   },
   "files": [
     "src",
@@ -66,6 +67,7 @@
     "glob": "^7.1.2",
     "mocha": "^3.2.0",
     "mocha-webpack": "^1.0.1",
+    "nightmare": "^3.0.1",
     "prettier": "^1.12.1",
     "prompt": "^1.0.0",
     "replace-in-file": "^3.1.0",

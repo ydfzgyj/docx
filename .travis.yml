@@ -8,6 +8,7 @@ script:
   - npm test
   - npm run style
   - npm run build
+  - npm run e2e
   - node ./demo/demo1.js
   - node ./demo/demo2.js
   - node ./demo/demo3.js
