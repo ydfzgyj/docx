@@ -5,5 +5,5 @@ import { IPacker } from "./packer";
 export declare class StreamPacker implements IPacker {
     private readonly compiler;
     constructor(file: File);
-    pack(): Promise<Readable>;
+    pack(): Readable;
 }
