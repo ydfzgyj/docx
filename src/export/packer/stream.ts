@@ -17,9 +17,9 @@ export class StreamPacker implements IPacker {
         this.compiler = new Compiler(file);
     }
 
-    public pack(): Readable {
+    public async pack(): Promise<Readable> {
         const pipe = new Pipe();
-        this.compiler.compile(pipe);
+        await this.compiler.compile(pipe);
         return pipe;
     }
 }
