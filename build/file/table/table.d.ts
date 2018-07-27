@@ -17,6 +17,7 @@ export declare class TableRow extends XmlComponent {
     private readonly properties;
     constructor(cells: TableCell[]);
     getCell(ix: number): TableCell;
+    addGridSpan(ix: number, cellSpan: number): TableCell;
 }
 export declare class TableRowProperties extends XmlComponent {
     constructor();
@@ -37,4 +38,5 @@ export declare class TableCellProperties extends XmlComponent {
     addVerticalMerge(type: VMergeType): TableCellProperties;
     setVerticalAlign(vAlignType: VerticalAlign): TableCellProperties;
     setWidth(width: string | number, type: WidthType): TableCellProperties;
+    setShading(attrs: object): TableCellProperties;
 }

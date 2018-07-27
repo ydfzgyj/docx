@@ -63,3 +63,6 @@ export declare enum WidthType {
 export declare class TableCellWidth extends XmlComponent {
     constructor(value: string | number, type: WidthType);
 }
+export declare class TableCellShading extends XmlComponent {
+    constructor(attrs: object);
+}

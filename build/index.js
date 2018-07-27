@@ -32875,6 +32875,23 @@ class TableCellWidth extends xml_components_1.XmlComponent {
     }
 }
 exports.TableCellWidth = TableCellWidth;
+class TableCellShadingAttributes extends xml_components_1.XmlAttributeComponent {
+    constructor() {
+        super(...arguments);
+        this.xmlKeys = {
+            fill: "w:fill",
+            color: "w:color",
+            val: "w:val",
+        };
+    }
+}
+class TableCellShading extends xml_components_1.XmlComponent {
+    constructor(attrs) {
+        super("w:shd");
+        this.root.push(new TableCellShadingAttributes(attrs));
+    }
+}
+exports.TableCellShading = TableCellShading;
 
 
 /***/ }),
@@ -47018,6 +47035,13 @@ class TableRow extends xml_components_1.XmlComponent {
     getCell(ix) {
         return this.cells[ix];
     }
+    addGridSpan(ix, cellSpan) {
+        const remainCell = this.cells[ix];
+        remainCell.cellProperties.addGridSpan(cellSpan);
+        this.cells.splice(ix + 1, cellSpan - 1);
+        this.root.splice(ix + 2, cellSpan - 1);
+        return remainCell;
+    }
 }
 exports.TableRow = TableRow;
 class TableRowProperties extends xml_components_1.XmlComponent {
@@ -47077,6 +47101,10 @@ class TableCellProperties extends xml_components_1.XmlComponent {
     }
     setWidth(width, type) {
         this.root.push(new table_cell_1.TableCellWidth(width, type));
+        return this;
+    }
+    setShading(attrs) {
+        this.root.push(new table_cell_1.TableCellShading(attrs));
         return this;
     }
 }
